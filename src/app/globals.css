@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --color-cream: #f4eadb;
+  --color-paper: #fbf6ee;
+  --color-ink: #1c1410;
+  --color-brick: #6b2d1a;
+  --color-brick-deep: #4a1d12;
+  --color-saffron: #c4a35a;
+  --color-gold: #e0c07a;
+  --color-leaf: #2f6b3a;
+  --color-muted: #6f6258;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: #e8c98a;
+  color: #1c1410;
+}
+
+.font-display {
+  font-family: var(--font-display);
+  font-optical-sizing: auto;
+}
+
+.paper-grid {
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(196, 163, 90, 0.14), transparent 28%),
+    radial-gradient(circle at 86% 8%, rgba(107, 45, 26, 0.08), transparent 26%),
+    linear-gradient(180deg, #fbf6ee 0%, #f4eadb 100%);
+}
+
+.gold-line {
+  background: linear-gradient(90deg, transparent, #c4a35a, transparent);
+  height: 1px;
+}
+
+@keyframes ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker 28s linear infinite;
+}
+
+.focus-ring:focus-visible {
+  outline: 2px solid #c4a35a;
+  outline-offset: 3px;
+}

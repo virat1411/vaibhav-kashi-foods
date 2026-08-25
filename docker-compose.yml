@@ -1,0 +1,21 @@
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: vkf-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: vkf
+      POSTGRES_PASSWORD: vkf_dev_password
+      POSTGRES_DB: vaibhav_kashi_foods
+    ports:
+      - "5432:5432"
+    volumes:
+      - vkf_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U vkf -d vaibhav_kashi_foods"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+volumes:
+  vkf_pgdata:
